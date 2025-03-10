@@ -88,7 +88,9 @@ Este é um projeto de uma To-do List (Lista de Tarefas) desenvolvido com uma arq
    ```sh
    npm run dev
    ```
-4. Acesse a aplicação pelo navegador (geralmente em `http://localhost:5173/`).
+4. Acesse a aplicação pelo navegador pelo `http://localhost:5173/`.
+5. O frontend está disponível em http://localhost:5173 e o backend em http://localhost:3000.
+
 
 ## Funcionalidades
 - Adicionar, editar e remover tarefas.
