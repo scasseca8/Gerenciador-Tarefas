@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import api from "../services/api";
+import Spinner from "./Spinner";
 
 export default function TodoForm({ onTaskAdded, showToast }) {
   const [title, setTitle] = useState("");
@@ -162,6 +163,7 @@ export default function TodoForm({ onTaskAdded, showToast }) {
       >
         {isSubmitting ? (
           <>
+            <Spinner size="small" />
             <span>Adicionando...</span>
           </>
         ) : (
