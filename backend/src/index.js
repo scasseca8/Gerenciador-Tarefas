@@ -11,7 +11,10 @@ app.use(express.json());
 app.use("src/uploads", express.static(path.resolve("uploads")));
 
 app.use(
-  cors({})
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
 );
 
 app.use(routes);
