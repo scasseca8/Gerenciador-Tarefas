@@ -53,6 +53,11 @@ Este é um projeto de uma To-do List (Lista de Tarefas) desenvolvido com uma arq
 │   ├── index.html
 ```
 
+## Layout
+
+![TodoList](https://github.com/user-attachments/assets/9de12ca9-e0ae-45e8-812d-f6679795b93d)
+
+
 ## Como Executar o Projeto
 
 ### Backend:
