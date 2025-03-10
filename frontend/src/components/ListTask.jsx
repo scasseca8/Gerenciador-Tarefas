@@ -11,7 +11,6 @@ export default function TaskList({ tasks, onTaskUpdated, onTaskDeleted, showToas
   const [addingFilesToTaskId, setAddingFilesToTaskId] = useState(null);
   const [filesToAdd, setFilesToAdd] = useState([]);
   
-  // Loading states
   const [isLoading, setIsLoading] = useState({
     edit: false,
     delete: null,
@@ -19,7 +18,7 @@ export default function TaskList({ tasks, onTaskUpdated, onTaskDeleted, showToas
     deleteFile: null
   });
   
-  // Confirmation dialog state
+
   const [deleteConfirmation, setDeleteConfirmation] = useState({
     visible: false,
     taskId: null,
@@ -57,7 +56,6 @@ export default function TaskList({ tasks, onTaskUpdated, onTaskDeleted, showToas
         return;
       }
 
-      // Set loading state
       setIsLoading(prev => ({ ...prev, addFiles: true }));
       
       const formData = new FormData();
@@ -91,7 +89,6 @@ export default function TaskList({ tasks, onTaskUpdated, onTaskDeleted, showToas
         return;
       }
       
-      // Set loading state
       setIsLoading(prev => ({ ...prev, edit: true }));
       
       const formData = new FormData();
@@ -124,7 +121,6 @@ export default function TaskList({ tasks, onTaskUpdated, onTaskDeleted, showToas
 
   const deleteFile = async (taskId, fileId, fileName) => {
     try {
-      // Set loading state for this specific file
       setIsLoading(prev => ({ ...prev, deleteFile: fileId }));
       
       await api.delete(`/tasks/${taskId}/files/${fileId}`);
@@ -156,7 +152,7 @@ export default function TaskList({ tasks, onTaskUpdated, onTaskDeleted, showToas
 
   const deleteTask = async (taskId) => {
     try {
-      // Set loading state for this specific task
+
       setIsLoading(prev => ({ ...prev, delete: taskId }));
       hideDeleteConfirmation();
       
@@ -194,7 +190,7 @@ export default function TaskList({ tasks, onTaskUpdated, onTaskDeleted, showToas
             style={{animationDelay: `${index * 0.1}s`}}
           >
             {editingTaskId === task._id ? (
-              // Modo de edição completa
+  
               <div className="edit-form">
                 <input
                   type="text"
@@ -279,7 +275,7 @@ export default function TaskList({ tasks, onTaskUpdated, onTaskDeleted, showToas
                 </div>
               </div>
             ) : addingFilesToTaskId === task._id ? (
-              // Modo de adição de arquivos
+  
               <div className="add-files-form">
                 <h3>{task.title}</h3>
                 <div className="file-section">
@@ -351,7 +347,7 @@ export default function TaskList({ tasks, onTaskUpdated, onTaskDeleted, showToas
                 </div>
               </div>
             ) : (
-              // Modo de visualização
+    
               <div className="view-mode">
                 <div className="status-indicator" title={`Status: ${task.status}`}></div>
                 <h3>{task.title}</h3>
@@ -436,8 +432,8 @@ export default function TaskList({ tasks, onTaskUpdated, onTaskDeleted, showToas
           </div>
         ))}
       </div>
-      
-      {/* Delete Confirmation Dialog */}
+    
+    
       {deleteConfirmation.visible && (
         <div className="delete-confirmation">
           <div className="delete-confirmation-content">
